@@ -37,7 +37,10 @@
                     fetch : "ObjectID,StartDate,EndDate,State,Name,Project",
                     projectScopeUp : false,
                     projectScopeDown: false,
-                    query : "(State != Accepted)",
+                    //Edited to only show the Current Iteration. This should be driven by the selector, however, I'm not sure how to code
+                    //that. It'd be nice if someone could fix this to grab the input of the Iteration ID from the URL, even if just for my sake. 
+                    //Cheers. :) 
+                    query : "((StartDate <= today) AND (EndDate >= today))",
                     order : "StartDate"
                 };
 
@@ -425,8 +428,8 @@
             border-top: solid 2px #cccccc;
             font-family: tahoma, geneva, helvetica, arial, sans-serif;
             font-size: 11px;
-            width: 275px;
-            height: 400px;
+            width: 98%;
+            height: 100%;
             overflow-y: auto;
             float: left;
         }
@@ -459,16 +462,21 @@
             padding-top: 5px;
             padding-bottom: 3px;
             padding-left: 3px;
-            float: left;
+            //float: left;
+            width: 90%;
         }
 
         .dependency .predecessor {
             padding: 5px;
             padding-left: 22px;
+            //float: left;
+            float: bottom;
+            width: 95%;
         }
 
         .predecessor-container {
             padding-left: 20px;
+            width: 100%;
         }
 
         .predecessor-status {
